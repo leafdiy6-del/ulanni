@@ -1,0 +1,910 @@
+<!doctype html>
+<html lang="sl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ULANNI – Ljubljana D'OR. Moda, šiviljstvo in preobrazbe. Boutique z oblačili z zgodbo, šiviljski atelje, stilsko svetovanje, ustvarjalnica in spletna učilnica. Bežigrad 6, Ljubljana.">
+<meta name="theme-color" content="#F4EFE5">
+<meta property="og:title" content="ULANNI – Ljubljana D'OR">
+<meta property="og:description" content="Lepo ostane. Zgodba se nadaljuje. Moda z dušo. Stvari z novo zgodbo.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="sl_SI">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26' font-family='Georgia,serif' fill='%23697653'>U</text></svg>">
+<title>ULANNI Ljubljana D'OR</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Lato:wght@400;700&display=swap">
+<style>
+/* Layout: en sam dolg dokument — kremna podlaga nosi 70 % strani, pasovi se izmenjujejo (kremna / papir / olivna / puder),
+   zlato je rezervirano za znake (krog, pečat, metulj, cvetni motiv), fotografije so poenotene v topel, svetel ton. */
+:root{
+  --cream:#F4EFE5;
+  --paper:#FBF8F2;
+  --olive:#697653;
+  --olive-deep:#44502F;
+  --ink:#2E3327;
+  --ink-soft:#5A6050;
+  --powder:#D9B6B3;
+  --powder-soft:#EFDEDC;
+  --sand:#BBA58D;
+  --bordo:#713E46;
+  --gold:#A9823C;
+  --line:#DCD3C2;
+  --display:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --body:"Lato","Helvetica Neue",Arial,sans-serif;
+  --wrap:1120px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--cream);color:var(--ink);
+  font-family:var(--body);font-size:18px;line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--cream);z-index:40}
+img{max-width:100%}
+a{color:var(--bordo)}
+:focus-visible{outline:3px solid var(--bordo);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+html{scroll-behavior:smooth}
+
+.wrap{
+  width:100%;max-width:var(--wrap);margin-inline:auto;
+  padding-left:max(20px,env(safe-area-inset-left,0px));
+  padding-right:max(20px,env(safe-area-inset-right,0px));
+}
+.band{padding-block:clamp(56px,8vw,104px)}
+.band--paper{background:var(--paper)}
+.band--olive{background:var(--olive-deep);color:var(--cream)}
+.band--powder{background:var(--powder-soft)}
+.band--dor{
+  background:var(--paper);
+  border-top:1px solid rgba(169,130,60,.45);
+  border-bottom:1px solid rgba(169,130,60,.45);
+}
+
+/* ---------- tipografija ---------- */
+h1,h2,h3,h4{font-family:var(--display);font-weight:400;text-wrap:balance;margin:0}
+.eyebrow{
+  font-family:var(--body);font-size:.78rem;font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--olive);
+  margin:0 0 18px;
+}
+.band--olive .eyebrow{color:var(--sand)}
+.band--dor .eyebrow{color:var(--gold)}
+h2{font-size:clamp(2rem,4.4vw,3.1rem);line-height:1.12;letter-spacing:.005em}
+h3{font-size:clamp(1.4rem,2.4vw,1.75rem);line-height:1.25}
+p{margin:0 0 1.1em;max-width:62ch}
+.lead{font-size:clamp(1.15rem,1.9vw,1.4rem);line-height:1.6;color:var(--ink-soft)}
+.band--olive .lead{color:#E2DCCB}
+.sig{font-family:var(--display);font-style:italic;font-size:1.3rem;color:var(--bordo)}
+figcaption{font-size:.84rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-top:12px}
+
+.pull{
+  font-family:var(--display);font-size:clamp(1.7rem,3.6vw,2.5rem);line-height:1.3;
+  color:var(--bordo);max-width:20ch;margin:0;
+}
+
+/* ---------- znaki: metulj, cvetni motiv, pečat ---------- */
+.bf{display:block;width:76px;height:60px;color:var(--gold);flex:none}
+.bf--sm{width:34px;height:27px}
+.bf--xs{width:22px;height:18px}
+.sprig{display:block;width:34px;height:100px;color:var(--gold);flex:none}
+.seal{display:block;width:118px;height:118px;flex:none}
+
+/* šiv + metulj kot ločilo */
+.rule{display:flex;align-items:center;gap:18px;color:var(--gold)}
+.rule__line{
+  flex:1;height:1px;min-width:0;
+  background-image:linear-gradient(to right,var(--line) 0 10px,transparent 10px 20px);
+  background-size:20px 1px;background-repeat:repeat-x;
+}
+.band--olive .rule__line{background-image:linear-gradient(to right,rgba(244,239,229,.5) 0 10px,transparent 10px 20px)}
+.band--olive .rule{color:var(--sand)}
+
+/* ---------- glava ---------- */
+.topbar{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:50;
+  background:rgba(244,239,229,.95);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.topbar__in{display:flex;align-items:center;gap:18px;min-height:68px;flex-wrap:wrap}
+.mark{
+  font-family:var(--display);font-size:1.5rem;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--olive-deep);text-decoration:none;
+  margin-right:auto;white-space:nowrap;
+}
+.nav{display:flex;gap:4px 20px;flex-wrap:wrap;align-items:center}
+.nav a{
+  font-size:.92rem;color:var(--ink);text-decoration:none;padding:8px 2px;
+  border-bottom:2px solid transparent;
+}
+.nav a:hover{border-bottom-color:var(--powder);color:var(--bordo)}
+.nav .gold{color:var(--gold)}
+.menu-btn{display:none}
+
+/* ---------- hero ---------- */
+.hero{padding-block:clamp(52px,8vw,96px);text-align:center;position:relative;overflow:hidden}
+.hero::after{
+  content:"";position:absolute;left:50%;top:-150px;width:620px;height:620px;
+  transform:translateX(-50%);border-radius:50%;
+  border:1px solid rgba(169,130,60,.32);pointer-events:none;max-width:140vw;
+}
+.hero__inner{position:relative}
+.hero .bf{margin:0 auto 26px}
+.wordmark{
+  font-family:var(--display);font-weight:300;
+  font-size:clamp(3.4rem,13vw,8.5rem);line-height:.95;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--olive-deep);
+  margin:0 0 6px;
+}
+.dor{
+  font-family:var(--display);font-style:italic;font-size:clamp(1.1rem,2.6vw,1.5rem);
+  color:var(--gold);letter-spacing:.14em;margin:0 0 30px;
+}
+.hero__claim{
+  font-family:var(--display);font-size:clamp(1.6rem,3.6vw,2.5rem);
+  line-height:1.3;color:var(--ink);margin:0 auto 14px;max-width:22ch;
+}
+.hero p{margin-inline:auto}
+
+/* ---------- fotografije: poenoten topel ton ---------- */
+.ph,.banner{filter:saturate(.9) sepia(.07) brightness(1.03) contrast(1.01)}
+.banner{
+  display:block;width:100%;aspect-ratio:16/6.6;max-width:100%;
+  object-fit:cover;background:var(--sand);
+}
+.banner--tall{aspect-ratio:16/8.5}
+.banner--slim{aspect-ratio:16/4.4}
+.ph{
+  display:block;width:100%;aspect-ratio:4/5;max-width:100%;
+  object-fit:cover;background:var(--sand);
+}
+.ph--wide{aspect-ratio:10/7}
+.ph--portrait{aspect-ratio:3/4}
+.ph--square{aspect-ratio:1/1}
+.hero-shot{position:relative}
+.hero-shot::after{
+  content:"";position:absolute;inset:0 0 auto;height:34%;pointer-events:none;
+  background:linear-gradient(to bottom,var(--cream),rgba(244,239,229,0));
+}
+
+/* ---------- gumbi ---------- */
+.btn{
+  display:inline-block;font-family:var(--body);font-weight:700;
+  font-size:1rem;letter-spacing:.1em;text-transform:uppercase;
+  padding:16px 30px;border-radius:2px;text-decoration:none;cursor:pointer;
+  background:var(--olive-deep);color:var(--cream);border:2px solid var(--olive-deep);
+  transition:background .2s,color .2s,border-color .2s;min-height:52px;
+}
+.btn:hover{background:var(--bordo);border-color:var(--bordo);color:#fff}
+.btn--ghost{background:transparent;color:var(--olive-deep)}
+.btn--ghost:hover{background:var(--olive-deep);border-color:var(--olive-deep);color:var(--cream)}
+.btn--gold{background:transparent;color:var(--bordo);border-color:var(--gold)}
+.btn--gold:hover{background:var(--gold);border-color:var(--gold);color:#241F15}
+.band--olive .btn{background:var(--cream);color:var(--olive-deep);border-color:var(--cream)}
+.band--olive .btn:hover{background:var(--powder);border-color:var(--powder);color:#3A3326}
+
+/* ---------- mreže ---------- */
+.grid{display:grid;gap:26px}
+.grid--5{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.grid--4{grid-template-columns:repeat(auto-fit,minmax(228px,1fr))}
+.grid--3{grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
+.grid>*{min-width:0}
+
+.world{
+  display:block;background:var(--paper);border:1px solid var(--line);
+  text-decoration:none;color:inherit;padding:0 0 24px;transition:border-color .2s,transform .2s;
+}
+.world:hover{border-color:var(--olive);transform:translateY(-3px)}
+.world .ph{border-bottom:1px solid var(--line)}
+.world h3{margin:22px 22px 6px;color:var(--olive-deep)}
+.world p{margin:0 22px;font-size:1rem;color:var(--ink-soft);max-width:none}
+.world__meta{display:block;margin:14px 22px 0;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--bordo);font-weight:700}
+
+/* ---------- seznami ---------- */
+.ticks{list-style:none;padding:0;margin:0 0 28px;display:grid;gap:12px}
+.ticks li{padding-left:30px;position:relative;font-size:1.05rem}
+.ticks li::before{
+  content:"";position:absolute;left:0;top:.62em;width:14px;height:14px;
+  border:1px solid var(--gold);border-radius:50%;
+}
+.band--olive .ticks li::before{border-color:var(--sand)}
+
+.steps{counter-reset:s;display:grid;gap:24px;margin:34px 0 0;padding:0;list-style:none}
+.steps li{counter-increment:s;padding-left:62px;position:relative}
+.steps li::before{
+  content:counter(s);position:absolute;left:0;top:-4px;
+  width:44px;height:44px;border-radius:50%;border:1px solid var(--gold);
+  display:grid;place-items:center;font-family:var(--display);font-size:1.3rem;color:var(--gold);
+}
+.steps h4{font-size:1.15rem;margin-bottom:4px}
+.steps p{font-size:1rem;margin:0;color:var(--ink-soft)}
+.band--olive .steps p{color:#DED8C7}
+
+/* ---------- boutique ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 30px}
+.chip{
+  font:inherit;font-size:.95rem;padding:10px 20px;min-height:46px;cursor:pointer;
+  background:transparent;border:1px solid var(--line);border-radius:999px;color:var(--ink);
+}
+.chip[aria-pressed="true"]{background:var(--olive-deep);border-color:var(--olive-deep);color:var(--cream);font-weight:700}
+.item{background:var(--paper);border:1px solid var(--line);display:flex;flex-direction:column}
+.item__body{padding:20px;display:flex;flex-direction:column;gap:6px;flex:1}
+.item__tag{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--bordo)}
+.item h3{font-size:1.3rem}
+.item__meta{font-size:.95rem;color:var(--ink-soft);margin:0}
+.item__price{font-family:var(--display);font-size:1.5rem;color:var(--olive-deep);font-variant-numeric:tabular-nums;margin:0}
+.item .btn{margin-top:auto;padding:13px 20px;font-size:.88rem;text-align:center}
+.note{font-size:.95rem;color:var(--ink-soft);border-left:3px solid var(--powder);padding-left:16px;margin-top:28px}
+
+/* ---------- dve koloni ---------- */
+.split{display:grid;gap:clamp(30px,5vw,60px);grid-template-columns:repeat(auto-fit,minmax(300px,1fr));align-items:start}
+.split>*{min-width:0}
+.split figure{margin:0}
+
+/* ---------- foto kotiček ---------- */
+.corner-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.corner-grid>*{min-width:0}
+
+/* ---------- cenik ---------- */
+.price-card{background:var(--paper);border:1px solid var(--line);padding:28px}
+.price-card h3{color:var(--olive-deep);margin-bottom:16px}
+.price-list{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.price-list li{display:flex;gap:14px;align-items:baseline;padding:11px 0;border-bottom:1px dotted var(--line);font-size:1.02rem}
+.price-list li span:first-child{flex:1;min-width:0}
+.price-list b{font-family:var(--display);font-size:1.25rem;font-weight:500;white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* ---------- Ljubljana D'OR ---------- */
+.dor-head{display:flex;gap:28px;align-items:center;flex-wrap:wrap;margin-bottom:40px}
+.dor-card{border:1px solid rgba(169,130,60,.4);background:var(--cream)}
+.dor-card__body{padding:22px 24px 26px}
+.dor-card h3{color:var(--bordo);font-size:1.35rem}
+.dor-card p{color:var(--ink-soft);font-size:1rem;max-width:none;margin:10px 0 0}
+.dor-card .kicker{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700;display:block;margin-bottom:8px}
+
+/* ---------- kontakt ---------- */
+.info{list-style:none;padding:0;margin:0 0 28px;display:grid;gap:20px}
+.info dt{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--olive);margin-bottom:3px}
+.info dd{margin:0;font-size:1.1rem}
+form{display:grid;gap:18px;background:var(--paper);border:1px solid var(--line);padding:clamp(22px,4vw,34px)}
+label{display:block;font-weight:700;font-size:.95rem;margin-bottom:7px}
+input,select,textarea{
+  font:inherit;font-size:1rem;width:100%;padding:14px 15px;min-height:52px;
+  background:#fff;border:1px solid var(--sand);border-radius:2px;color:var(--ink);
+}
+textarea{min-height:130px;resize:vertical}
+.hint{font-size:.9rem;color:var(--ink-soft)}
+.form-ok{
+  display:none;border:1px solid var(--olive);background:rgba(105,118,83,.12);
+  padding:16px 18px;font-size:1rem;margin:0;
+}
+.form-ok[data-shown="true"]{display:block}
+
+/* ---------- noga ---------- */
+.foot{background:var(--olive-deep);color:var(--cream);padding-block:48px;text-align:center}
+.foot .wordmark{font-size:clamp(2rem,6vw,3rem);color:var(--cream);margin-bottom:10px}
+.foot p{margin-inline:auto;color:#DED8C7;font-size:1rem}
+.foot a{color:var(--powder)}
+.foot .bf{margin:0 auto 20px;color:var(--sand)}
+
+@media (max-width:760px){
+  .menu-btn{
+    display:inline-block;font:inherit;font-size:.9rem;font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;background:transparent;border:1px solid var(--olive-deep);
+    color:var(--olive-deep);padding:11px 16px;min-height:46px;border-radius:2px;cursor:pointer;
+  }
+  .nav{
+    display:none;width:100%;flex-direction:column;align-items:flex-start;
+    gap:0;border-top:1px solid var(--line);padding:8px 0 14px;
+  }
+  .nav[data-open="true"]{display:flex}
+  .nav a{width:100%;padding:13px 0;font-size:1.05rem}
+  .banner,.banner--tall,.banner--slim{aspect-ratio:4/3}
+  .banner--slim{aspect-ratio:16/9}
+}
+</style>
+<style>
+html{-webkit-text-size-adjust:100%}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="butterfly" viewBox="0 0 64 50">
+    <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+      <path d="M32 12C24 3 9 2.5 5.5 13 2 23.5 16 29.5 26 23.5 30 21 31.3 17 32 12Z"/>
+      <path d="M32 25c-5-2-18 0-20 8.5-1.8 7.6 8 11 15 5.5 3-2.4 5-7 5-14Z"/>
+      <path d="M32 12c8-9 23-9.5 26.5 1C62 23.5 48 29.5 38 23.5 34 21 32.7 17 32 12Z"/>
+      <path d="M32 25c5-2 18 0 20 8.5 1.8 7.6-8 11-15 5.5-3-2.4-5-7-5-14Z"/>
+      <path d="M32 11v30M32 11c-1.5-4-4.5-6.5-8-7.5M32 11c1.5-4 4.5-6.5 8-7.5"/>
+    </g>
+  </symbol>
+  <symbol id="sprig" viewBox="0 0 40 120">
+    <g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+      <path d="M20 119V30"/>
+      <path d="M20 100c-8-2-13-8-14-16 8 0 13 6 14 16Z"/>
+      <path d="M20 88c8-2 13-8 14-16-8 0-13 6-14 16Z"/>
+      <path d="M20 72c-7-2-11-7-12-14 7 0 11 5 12 14Z"/>
+      <path d="M20 58c7-2 11-7 12-14-7 0-11 5-12 14Z"/>
+      <circle cx="20" cy="14" r="6"/>
+      <circle cx="10" cy="26" r="4"/>
+      <circle cx="30" cy="26" r="4"/>
+    </g>
+  </symbol>
+</svg>
+
+<header class="topbar">
+  <div class="wrap topbar__in">
+    <a class="mark" href="#domov">Ulanni</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mainnav">Meni</button>
+    <nav class="nav" id="mainnav" aria-label="Glavni meni">
+      <a href="#boutique">Boutique</a>
+      <a href="#atelje">Atelje</a>
+      <a href="#preobrazbe">Preobrazbe</a>
+      <a href="#foto-koticek">Foto kotiček</a>
+      <a href="#ustvarjalnica">Ustvarjalnica</a>
+      <a href="#ucilnica">Spletna učilnica</a>
+      <a href="#o-ulanni">O ULANNI</a>
+      <a class="gold" href="#ljubljana-dor">Ljubljana D'OR</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="domov">
+    <div class="wrap hero__inner">
+      <svg class="bf" role="img" aria-label="Metulj, znak preobrazbe"><use href="#butterfly"></use></svg>
+      <p class="eyebrow">Moda &middot; Šiviljstvo &middot; Preobrazbe</p>
+      <h1 class="wordmark">Ulanni</h1>
+      <p class="dor">Ljubljana D&rsquo;OR</p>
+      <p class="hero__claim">Lepo ostane.<br>Zgodba se nadaljuje.</p>
+      <p class="lead" style="max-width:34ch">Moda z dušo. Stvari z novo zgodbo.</p>
+      <p style="margin-top:32px"><a class="btn" href="#svet">Odkrij svet ULANNI</a></p>
+    </div>
+  </section>
+  <div class="hero-shot">
+    <img class="banner banner--tall" src="img/hero.jpg" alt="Svetla trgovina z oblačili v nevtralnih tonih na obešalnikih" fetchpriority="high" decoding="async">
+  </div>
+
+  <!-- ================= DOBRODOŠLI ================= -->
+  <section class="band band--paper">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Dobrodošli</p>
+        <h2>Lepota ni vedno nova.<br>Včasih jo je treba<br>samo znova odkriti.</h2>
+        <svg class="sprig" style="margin-top:28px" aria-hidden="true"><use href="#sprig"></use></svg>
+      </div>
+      <div>
+        <p class="lead">ULANNI je svet mode, šiviljstva in osebnih preobrazb. Verjamemo, da imajo oblačila svojo zgodbo, da lepota ne potrebuje vedno novega in da se pravi slog začne pri človeku.</p>
+        <p>V našem svetu se srečajo skrbno izbrana oblačila, ustvarjalne predelave, šiviljske spretnosti in osebno svetovanje. Izbiramo drugače. Ustvarjamo drugače. Z mislijo na lepoto, trajnost in edinstvenost vsakega posameznika.</p>
+        <p class="sig">ULANNI &mdash; lepo ostane. Zgodba se nadaljuje.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SVET ULANNI ================= -->
+  <section class="band" id="svet">
+    <div class="wrap">
+      <p class="eyebrow">Svet ULANNI</p>
+      <h2 style="margin-bottom:14px">Več kot moda</h2>
+      <p class="lead" style="margin-bottom:40px">Prostor za lepoto, ustvarjalnost in nove začetke.</p>
+      <div class="grid grid--5">
+        <a class="world" href="#boutique">
+          <img class="ph" src="img/w-boutique.jpg" alt="Čipkasta obleka na obešalniku" loading="lazy" decoding="async">
+          <h3>Boutique</h3>
+          <p>Oblačila z zgodbo.</p>
+          <span class="world__meta">Odkrij kolekcijo</span>
+        </a>
+        <a class="world" href="#atelje">
+          <img class="ph" src="img/w-atelje.jpg" alt="Šivilja šiva za šivalnim strojem" loading="lazy" decoding="async">
+          <h3>Atelje</h3>
+          <p>Lepota v novih podrobnostih.</p>
+          <span class="world__meta">Šiviljske storitve</span>
+        </a>
+        <a class="world" href="#preobrazbe">
+          <img class="ph" src="img/w-preobrazbe.jpg" alt="Ženska v bež plašču ob zeleni steni" loading="lazy" decoding="async">
+          <h3>Preobrazbe</h3>
+          <p>Odkrij svoj slog.</p>
+          <span class="world__meta">Bodi svoj metulj</span>
+        </a>
+        <a class="world" href="#ustvarjalnica">
+          <img class="ph" src="img/w-ustvarjalnica.jpg" alt="Barvne špulice sukanca na mizi" loading="lazy" decoding="async">
+          <h3>Ustvarjalnica</h3>
+          <p>Ustvari nekaj svojega.</p>
+          <span class="world__meta">Tečaji in delavnice</span>
+        </a>
+        <a class="world" href="#ljubljana-dor">
+          <img class="ph" src="img/w-ljubljana.jpg" alt="Pogled na Ljubljano z gradom nad mestom" loading="lazy" decoding="async">
+          <h3>Ljubljana D&rsquo;OR</h3>
+          <p>Ljubljana v svoji najlepši zgodbi.</p>
+          <span class="world__meta">Uredniška rubrika</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BOUTIQUE ================= -->
+  <section class="band band--paper" id="boutique">
+    <div class="wrap">
+      <div class="rule" style="margin-bottom:44px">
+        <span class="rule__line"></span>
+        <svg class="bf bf--sm" aria-hidden="true"><use href="#butterfly"></use></svg>
+        <span class="rule__line"></span>
+      </div>
+      <p class="eyebrow">Boutique</p>
+      <h2 style="margin-bottom:16px">Moda, ki ima svojo zgodbo</h2>
+      <p class="lead" style="margin-bottom:34px">Včasih je najlepši kos garderobe tisti, ki je že doživel svojo zgodbo. V ULANNI izbiramo oblačila in modne dodatke, ki si zaslužijo novo priložnost.</p>
+
+      <div class="split" style="margin-bottom:44px">
+        <ul class="ticks">
+          <li>Vintage in retro oblačila</li>
+          <li>Skrbno izbrana second-hand oblačila</li>
+          <li>Plašči, jakne, hlače in obleke</li>
+        </ul>
+        <ul class="ticks">
+          <li>Torbice, čevlji in modni dodatki</li>
+          <li>Posebni sezonski izbori</li>
+          <li>Kosi, predelani v ateljeju ULANNI</li>
+        </ul>
+      </div>
+
+      <div class="filters" role="group" aria-label="Filtriraj kolekcijo">
+        <button class="chip" type="button" data-filter="vse" aria-pressed="true">Vse</button>
+        <button class="chip" type="button" data-filter="obleke" aria-pressed="false">Obleke</button>
+        <button class="chip" type="button" data-filter="plasci" aria-pressed="false">Plašči</button>
+        <button class="chip" type="button" data-filter="dodatki" aria-pressed="false">Dodatki</button>
+      </div>
+
+      <div class="grid grid--4" id="katalog">
+        <article class="item" data-cat="obleke">
+          <img class="ph ph--portrait" src="img/p-obleka-cipka.jpg" alt="Cvetlična obleka brez rokavov na obešalniku" loading="lazy" decoding="async">
+          <div class="item__body">
+            <span class="item__tag">Second hand</span>
+            <h3>Obleka s čipko</h3>
+            <p class="item__meta">Velikost M &middot; dobro ohranjena</p>
+            <p class="item__price">od 3,00 &euro;</p>
+            <a class="btn btn--ghost" href="#kontakt">Želim pomeriti</a>
+          </div>
+        </article>
+        <article class="item" data-cat="plasci">
+          <img class="ph ph--portrait" src="img/p-plasc.jpg" alt="Ženska v daljšem plašču" loading="lazy" decoding="async">
+          <div class="item__body">
+            <span class="item__tag">Second hand</span>
+            <h3>Olivni plašč</h3>
+            <p class="item__meta">Velikost L &middot; volna</p>
+            <p class="item__price">od 3,00 &euro;</p>
+            <a class="btn btn--ghost" href="#kontakt">Želim pomeriti</a>
+          </div>
+        </article>
+        <article class="item" data-cat="obleke">
+          <img class="ph ph--portrait" src="img/p-pike.jpg" alt="Ženska v obleki s pikami" loading="lazy" decoding="async">
+          <div class="item__body">
+            <span class="item__tag">Upcycling</span>
+            <h3>Obleka s pikami</h3>
+            <p class="item__meta">Velikost S &middot; predelana v ateljeju</p>
+            <p class="item__price">od 15,00 &euro;</p>
+            <a class="btn btn--ghost" href="#kontakt">Želim pomeriti</a>
+          </div>
+        </article>
+        <article class="item" data-cat="dodatki">
+          <img class="ph ph--portrait" src="img/p-klobuk.jpg" alt="Klobuk s cvetjem in torbica na vintage razstavi" loading="lazy" decoding="async">
+          <div class="item__body">
+            <span class="item__tag">Posebni kos</span>
+            <h3>Klobuk z vrtnico</h3>
+            <p class="item__meta">Ena velikost &middot; vintage</p>
+            <p class="item__price">od 10,00 &euro;</p>
+            <a class="btn btn--ghost" href="#kontakt">Želim pomeriti</a>
+          </div>
+        </article>
+      </div>
+      <p class="note">Prikazani kosi so vzorčni primeri postavitve, ne dejanska zaloga. Vsak kos bo imel svojo fotografijo, velikost, stanje, ceno in podatek o razpoložljivosti. Za začetek deluje kot katalog s povpraševanjem; spletni nakup lahko dodamo pozneje.</p>
+    </div>
+  </section>
+
+  <!-- ================= ATELJE ================= -->
+  <img class="banner" src="img/atelje-wide.jpg" alt="Merilni trak in krojaške škarje na mizi" loading="lazy" decoding="async">
+  <section class="band band--olive" id="atelje">
+    <div class="wrap">
+      <p class="eyebrow">Šiviljski atelje</p>
+      <h2 style="margin-bottom:16px">Ker si zaslužiš, da ti oblačilo lepo pristaja</h2>
+      <p class="lead" style="margin-bottom:40px">Vsako oblačilo lahko dobi novo življenje. V šiviljskem ateljeju ULANNI združujemo natančnost, spretnost in občutek za estetiko.</p>
+      <div class="split">
+        <div>
+          <h3 style="margin-bottom:18px">Storitve</h3>
+          <ul class="ticks">
+            <li>Krajšanje in podaljševanje oblačil</li>
+            <li>Ožanje in prilagajanje postavi</li>
+            <li>Popravila zadrg in šivov</li>
+            <li>Predelave in osvežitve oblačil</li>
+            <li>Ustvarjalno preoblikovanje starih kosov</li>
+            <li>Izbrana šiviljska dela po dogovoru</li>
+          </ul>
+          <p><a class="btn" href="#kontakt">Naroči šiviljsko storitev</a></p>
+        </div>
+        <div>
+          <h3>Kako poteka</h3>
+          <ol class="steps">
+            <li>
+              <h4>Prinesi kos</h4>
+              <p>Pokaži nam oblačilo in povej, kaj si želiš spremeniti.</p>
+            </li>
+            <li>
+              <h4>Skupaj izberemo rešitev</h4>
+              <p>Pomerimo, označimo in se dogovorimo za ceno in rok.</p>
+            </li>
+            <li>
+              <h4>Nosi ga znova</h4>
+              <p>Ob prevzemu pomeriš in tvoja zgodba se nadaljuje.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PREOBRAZBE ================= -->
+  <section class="band band--powder" id="preobrazbe">
+    <div class="wrap">
+      <p class="eyebrow">Stil in preobrazbe</p>
+      <h2 style="margin-bottom:26px">Bodi svoj metulj</h2>
+      <div class="split" style="margin-bottom:44px;align-items:center">
+        <p class="pull">Celostna preobrazba, ki te spomni, kdo si.</p>
+        <div>
+          <p>Pravi slog ni v tem, da sledimo vsem modnim pravilom. Pravi slog je, da odkrijemo, kaj poudari našo osebnost, lepoto in samozavest.</p>
+          <p style="margin:0">Nova podoba sama ni dovolj. Naučiti se je treba, kako ti pristajajo barva, kroj in model ter kakšen tip si. Šele takrat svojo podobo res nosiš kot svojo.</p>
+        </div>
+      </div>
+      <div class="split">
+        <figure>
+          <img class="ph ph--wide" src="img/w-preobrazbe.jpg" alt="Ženska v bež plašču in klobuku ob zeleni steni" loading="lazy" decoding="async">
+          <figcaption>Tvoje barve, tvoji kroji, tvoja podoba</figcaption>
+        </figure>
+        <div>
+          <ul class="ticks">
+            <li>Analiza barvnega tipa</li>
+            <li>Svetovanje glede krojev in postave</li>
+            <li>Oblikovanje osebnega sloga</li>
+            <li>Urejanje garderobe in kapsulne kolekcije</li>
+            <li>Pomoč pri nakupovanju</li>
+            <li>Make-up, pričeska in celostna preobrazba</li>
+            <li>Fotografiranje končne podobe</li>
+            <li>Svetovanje na daljavo, prek videoklica</li>
+          </ul>
+          <p><a class="btn" href="#kontakt">Spoznaj svoj novi slog</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOTO KOTIČEK ================= -->
+  <img class="banner banner--slim" src="img/flower-wall.jpg" alt="Stena, prekrita s cvetjem" loading="lazy" decoding="async">
+  <section class="band" id="foto-koticek">
+    <div class="wrap">
+      <p class="eyebrow">Foto kotiček</p>
+      <h2 style="margin-bottom:16px">Cvetlična stena pred trgovino</h2>
+      <p class="lead" style="margin-bottom:40px">Vsaka preobrazba si zasluži fotografijo. Pred trgovino in na steni ateljeja raste cvetlični kotiček &mdash; prostor, kjer se nova podoba fotografira in kjer se ULANNI pokaže mimoidočim.</p>
+      <div class="corner-grid">
+        <figure>
+          <img class="ph ph--square" src="img/storefront.jpg" alt="Vhod v trgovino z lončnicami in plezajočimi vrtnicami" loading="lazy" decoding="async">
+          <figcaption>Vhod, ki te povabi noter</figcaption>
+        </figure>
+        <figure>
+          <img class="ph ph--square" src="img/flowers-pink.jpg" alt="Cvetovi v puder roza in kremnih odtenkih" loading="lazy" decoding="async">
+          <figcaption>Barve znamke, tudi v cvetju</figcaption>
+        </figure>
+        <figure>
+          <img class="ph ph--square" src="img/botanical.jpg" alt="Suho cvetje pred peščenim ozadjem" loading="lazy" decoding="async">
+          <figcaption>Suho cvetje za zimski izbor</figcaption>
+        </figure>
+        <div style="display:flex;flex-direction:column;justify-content:center;gap:14px">
+          <svg class="sprig" aria-hidden="true"><use href="#sprig"></use></svg>
+          <p style="margin:0">Kotiček se menja s sezono. Spomladi vrtnice in potonike, poleti bela in puder roza, jeseni suho cvetje in trave.</p>
+          <p style="margin:0"><a class="btn btn--gold" href="#kontakt">Fotografiraj se pri nas</a></p>
+        </div>
+      </div>
+      <p class="note">Cvetlična stena je v pripravi. Fotografije prikazujejo želeno vzdušje, ne končnega kotička.</p>
+    </div>
+  </section>
+
+  <!-- ================= USTVARJALNICA ================= -->
+  <section class="band band--paper" id="ustvarjalnica">
+    <div class="wrap">
+      <div class="rule" style="margin-bottom:44px">
+        <span class="rule__line"></span>
+        <svg class="bf bf--sm" aria-hidden="true"><use href="#butterfly"></use></svg>
+        <span class="rule__line"></span>
+      </div>
+      <p class="eyebrow">Ustvarjalnica</p>
+      <h2 style="margin-bottom:16px">Ustvari. Preoblikuj. Zaživi.</h2>
+      <p class="lead" style="margin-bottom:40px">Znanje je najlepše darilo, ki ga lahko podarimo sami sebi. V ustvarjalnici ULANNI se učimo šivanja, predelovanja oblačil in ustvarjalne ponovne uporabe &mdash; v živo, v ateljeju.</p>
+      <div class="grid grid--3">
+        <article class="world" style="padding-bottom:26px">
+          <img class="ph" src="img/u-sivanje.jpg" alt="Starinski šivalni stroj" loading="lazy" decoding="async">
+          <h3>Začetni tečaj šivanja</h3>
+          <p>Osnove dela s šivalnim strojem, prvi šivi in prvi izdelek, ki ga odneseš domov.</p>
+          <span class="world__meta">120,00 &euro;</span>
+        </article>
+        <article class="world" style="padding-bottom:26px">
+          <img class="ph" src="img/u-kroji.jpg" alt="Zložene tkanine s čipkastim robom" loading="lazy" decoding="async">
+          <h3>Nadaljevalni tečaj</h3>
+          <p>Kroji, prilagoditve po meri in zahtevnejši šivi za tiste, ki že znajo osnove.</p>
+          <span class="world__meta">120,00 &euro;</span>
+        </article>
+        <article class="world" style="padding-bottom:26px">
+          <img class="ph" src="img/u-predelava.jpg" alt="Zloženi barvni kosi blaga na polici" loading="lazy" decoding="async">
+          <h3>Predelava in prenova</h3>
+          <p>Ustvarjalne delavnice, kjer iz pozabljenega kosa nastane nekaj novega.</p>
+          <span class="world__meta">od 25,00 &euro;</span>
+        </article>
+      </div>
+      <p style="margin-top:34px"><a class="btn" href="#kontakt">Prijavi se na tečaj</a></p>
+    </div>
+  </section>
+
+  <!-- ================= SPLETNA UČILNICA ================= -->
+  <section class="band band--olive" id="ucilnica">
+    <div class="wrap">
+      <p class="eyebrow">Spletna učilnica</p>
+      <h2 style="margin-bottom:16px">Nauči se nositi svojo podobo</h2>
+      <p class="lead" style="margin-bottom:12px">Celostna preobrazba videza sama po sebi ni dovolj. Treba se je naučiti, kako ti pristaja barva, kakšen kroj in model te poudari in kakšen tip si.</p>
+      <p class="lead" style="margin-bottom:40px">Zato ULANNI pripravlja spletno učilnico: šivanje, barve, kroji in slog &mdash; doma, v svojem ritmu, s koraki iz ateljeja.</p>
+      <div class="grid grid--4">
+        <article class="world" style="padding-bottom:26px">
+          <img class="ph" src="img/uc-sivanje.jpg" alt="Ženska šiva za mizo" loading="lazy" decoding="async">
+          <h3>Tečaji šivanja</h3>
+          <p>Šivalni stroj in osnovni šivi, krajšanje, menjava zadrge, kroji in upcycling.</p>
+          <span class="world__meta">V pripravi</span>
+        </article>
+        <article class="world" style="padding-bottom:26px">
+          <img class="ph" src="img/uc-stil.jpg" alt="Tri majice v različnih barvah, ena ob drugi" loading="lazy" decoding="async">
+          <h3>Spoznaj svoj slog</h3>
+          <p>Barve, ki te poživijo, postava in linije, kroji in modeli, kakšen tip si.</p>
+          <span class="world__meta">V pripravi</span>
+        </article>
+        <article class="world" style="padding-bottom:26px">
+          <img class="ph" src="img/uc-stilist.jpg" alt="Roki z bucikami ob kosu blaga" loading="lazy" decoding="async">
+          <h3>Izobraževanje za stilista</h3>
+          <p>Barvna analiza in proporci, pogovor s stranko, garderoba in nakupovanje iz druge roke.</p>
+          <span class="world__meta">V pripravi</span>
+        </article>
+        <article class="world" style="padding-bottom:26px">
+          <img class="ph" src="img/w-preobrazbe.jpg" alt="Ženska v bež plašču ob zeleni steni" loading="lazy" decoding="async">
+          <h3>Svetovanje na daljavo</h3>
+          <p>Osebni posvet prek videoklica: pregled garderobe, tvoje barve, načrt naslednjih korakov.</p>
+          <span class="world__meta">V pripravi</span>
+        </article>
+      </div>
+      <p class="note" style="color:#DED8C7;border-left-color:var(--sand)">Spletna učilnica se odpira v naslednji fazi. Cene in datumi še niso določeni; obiskovalci se bodo lahko prijavili na obvestilo.</p>
+    </div>
+  </section>
+
+  <!-- ================= O ULANNI ================= -->
+  <section class="band" id="o-ulanni">
+    <div class="wrap split">
+      <figure>
+        <img class="ph ph--portrait" src="img/o-ulanni.jpg" alt="Kotiček ateljeja s starinsko mizo in krojaško lutko" loading="lazy" decoding="async">
+        <figcaption>Atelje ULANNI</figcaption>
+      </figure>
+      <div>
+        <p class="eyebrow">O ULANNI</p>
+        <h2 style="margin-bottom:20px">Zgodba ULANNI se začne pri ustvarjanju</h2>
+        <p>ULANNI je nastal iz ljubezni do mode, ustvarjanja in prepričanja, da ima lepota več kot eno življenje.</p>
+        <p>Za znamko stoji ustvarjalka, ki združuje znanje oblikovanja oblačil, šiviljske spretnosti, izkušnje z modo in občutek za osebno preobrazbo.</p>
+        <p>ULANNI je prostor, kjer se srečujejo preteklost, sedanjost in prihodnost. Kjer oblačila dobijo novo priložnost in ljudje nov pogled nase.</p>
+        <p>Ne gre le za oblačila. Gre za odnos do sebe, do ustvarjanja in do sveta, v katerem živimo.</p>
+        <p class="sig">ULANNI &mdash; lepo ostane. Zgodba se nadaljuje.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LJUBLJANA D'OR ================= -->
+  <img class="banner" src="img/dor-wide.jpg" alt="Most čez Ljubljanico v starem mestnem jedru" loading="lazy" decoding="async">
+  <section class="band band--dor" id="ljubljana-dor">
+    <div class="wrap">
+      <div class="dor-head">
+        <svg class="seal" role="img" aria-label="Pečat Ljubljana D'OR" viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="57" fill="none" stroke="#A9823C" stroke-width="1"></circle>
+          <circle cx="60" cy="60" r="50" fill="none" stroke="#A9823C" stroke-width="1" stroke-dasharray="2 5"></circle>
+          <text x="60" y="52" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="17" letter-spacing="2.5" fill="#A9823C">ULANNI</text>
+          <text x="60" y="68" text-anchor="middle" font-family="Lato, sans-serif" font-size="7.5" letter-spacing="2" fill="#A9823C">LJUBLJANA</text>
+          <text x="60" y="79" text-anchor="middle" font-family="Lato, sans-serif" font-size="7.5" letter-spacing="2" fill="#A9823C">D&rsquo;OR</text>
+          <g transform="translate(47,85) scale(0.4)" fill="none" stroke="#A9823C" stroke-width="2.4" stroke-linecap="round">
+            <path d="M32 12C24 3 9 2.5 5.5 13 2 23.5 16 29.5 26 23.5 30 21 31.3 17 32 12Z"></path>
+            <path d="M32 12c8-9 23-9.5 26.5 1C62 23.5 48 29.5 38 23.5 34 21 32.7 17 32 12Z"></path>
+          </g>
+        </svg>
+        <div style="min-width:0">
+          <p class="eyebrow">Uredniška rubrika</p>
+          <h2 style="margin-bottom:8px">Ljubljana D&rsquo;OR</h2>
+          <p class="lead" style="font-style:italic;margin:0">Zlata nit lepote, mode in zgodb.</p>
+        </div>
+      </div>
+      <div class="grid grid--3">
+        <article class="dor-card">
+          <img class="ph ph--wide" src="img/dor-mesto.jpg" alt="Tlakovana ulica med meščanskimi hišami" loading="lazy" decoding="async">
+          <div class="dor-card__body">
+            <span class="kicker">Mesto</span>
+            <h3>Ljubljanske zgodbe in posebni kotički</h3>
+            <p>Kraji, mimo katerih hodimo vsak dan, in zgodbe, ki jih redko slišimo.</p>
+          </div>
+        </article>
+        <article class="dor-card">
+          <img class="ph ph--wide" src="img/dor-moda.jpg" alt="Starinski predmeti in oblačila v trgovini" loading="lazy" decoding="async">
+          <div class="dor-card__body">
+            <span class="kicker">Moda</span>
+            <h3>Moda nekoč in danes</h3>
+            <p>Kaj so nosile Ljubljančanke pred sto leti in kaj od tega še vedno deluje.</p>
+          </div>
+        </article>
+        <article class="dor-card">
+          <img class="ph ph--wide" src="img/dor-ljudje.jpg" alt="Police z zloženimi tkaninami v rokodelski delavnici" loading="lazy" decoding="async">
+          <div class="dor-card__body">
+            <span class="kicker">Ljudje</span>
+            <h3>Ustvarjalci in rokodelci</h3>
+            <p>Obrti, ki ostajajo, in ženske z navdihujočimi zgodbami.</p>
+          </div>
+        </article>
+      </div>
+      <p class="note">V rubriki bodo tudi vintage kultura in estetika, dogodki, fotografije in ustvarjalni projekti ULANNI. Ljubljana D&rsquo;OR je podpis znamke &mdash; ljubljanska identiteta, ki ULANNI doda zgodbo.</p>
+    </div>
+  </section>
+
+  <!-- ================= CENIK ================= -->
+  <section class="band" id="cenik">
+    <div class="wrap">
+      <div class="rule" style="margin-bottom:44px">
+        <span class="rule__line"></span>
+        <svg class="bf bf--sm" aria-hidden="true"><use href="#butterfly"></use></svg>
+        <span class="rule__line"></span>
+      </div>
+      <p class="eyebrow">Cenik</p>
+      <h2 style="margin-bottom:34px">Jasne cene</h2>
+      <div class="grid grid--3">
+        <div class="price-card">
+          <h3>Šiviljske storitve</h3>
+          <ul class="price-list">
+            <li><span>Krajšanje hlač ali krila</span><b>11,50 &euro;</b></li>
+            <li><span>Krajšanje z originalnim robom</span><b>15,00 &euro;</b></li>
+            <li><span>Elegantne hlače ali krilo</span><b>17,00 &euro;</b></li>
+            <li><span>Menjava zadrge</span><b>14,00 &euro;</b></li>
+            <li><span>Popravila in prilagoditve</span><b>od 13,00 &euro;</b></li>
+            <li><span>Prešivanje</span><b>od 12,00 &euro;</b></li>
+          </ul>
+        </div>
+        <div class="price-card">
+          <h3>Stil in preobrazbe</h3>
+          <ul class="price-list">
+            <li><span>Stilsko svetovanje (1 h)</span><b>od 180,00 &euro;</b></li>
+            <li><span>Stilska preobrazba</span><b>od 180,00 &euro;</b></li>
+            <li><span>Celostna preobrazba<br><span class="hint">frizura, stil, fotografije</span></span><b>299,00 &euro;</b></li>
+          </ul>
+        </div>
+        <div class="price-card">
+          <h3>Boutique in tečaji</h3>
+          <ul class="price-list">
+            <li><span>Oblačila z zgodbo</span><b>od 3,00 &euro;</b></li>
+            <li><span>Posebni kosi</span><b>od 10,00 &euro;</b></li>
+            <li><span>Upcycling, nova podoba</span><b>od 15,00 &euro;</b></li>
+            <li><span>Začetni tečaj šivanja</span><b>120,00 &euro;</b></li>
+            <li><span>Nadaljevalni tečaj</span><b>120,00 &euro;</b></li>
+            <li><span>Kreativne delavnice</span><b>od 25,00 &euro;</b></li>
+          </ul>
+        </div>
+      </div>
+      <p class="note">Cene so prenesene iz obstoječega predloga in jih je treba pred objavo potrditi. Cene spletne učilnice še niso določene.</p>
+    </div>
+  </section>
+
+  <!-- ================= KONTAKT ================= -->
+  <section class="band band--paper" id="kontakt">
+    <div class="wrap">
+      <p class="eyebrow">Kontakt</p>
+      <h2 style="margin-bottom:34px">Obišči nas. Spoznaj svet ULANNI.</h2>
+      <div class="split">
+        <div>
+          <img class="ph ph--wide" src="img/kontakt.jpg" alt="Izložba male trgovine na tlakovani ulici" loading="lazy" decoding="async" style="margin-bottom:28px">
+          <dl class="info">
+            <div>
+              <dt>Naslov</dt>
+              <dd>Bežigrad 6, Ljubljana<br>
+                <a href="https://www.openstreetmap.org/search?query=Be%C5%BEigrad%206%2C%20Ljubljana">Odpri zemljevid</a></dd>
+            </div>
+            <div>
+              <dt>Telefon</dt>
+              <dd>069 304 944</dd>
+            </div>
+            <div>
+              <dt>E-pošta</dt>
+              <dd class="hint">Dodamo v končni različici.</dd>
+            </div>
+            <div>
+              <dt>Odpiralni čas</dt>
+              <dd class="hint">Objavimo pred odprtjem.</dd>
+            </div>
+            <div>
+              <dt>Instagram in Facebook</dt>
+              <dd class="hint">Povezavi dodamo, ko profila potrdiva.</dd>
+            </div>
+          </dl>
+          <p class="note">Pred objavo je treba potrditi naslov, telefon, e-pošto, odpiralni čas in povezave do aktivnih družbenih profilov.</p>
+        </div>
+        <form id="inquiry" novalidate>
+          <p style="margin:0;max-width:none"><em>&raquo;Pozdravljeni, zanima me več o ponudbi ULANNI.&laquo;</em></p>
+          <div>
+            <label for="f-name">Ime</label>
+            <input id="f-name" name="ime" type="text" autocomplete="name" required>
+          </div>
+          <div>
+            <label for="f-mail">E-pošta</label>
+            <input id="f-mail" name="epost" type="email" autocomplete="email" required>
+          </div>
+          <div>
+            <label for="f-svc">Vrsta storitve</label>
+            <select id="f-svc" name="storitev">
+              <option>Boutique &ndash; pomerjanje kosa</option>
+              <option>Šiviljski atelje</option>
+              <option>Stil in preobrazbe</option>
+              <option>Ustvarjalnica &ndash; tečaji v živo</option>
+              <option>Spletna učilnica &ndash; obvesti me</option>
+              <option>Fotografiranje v cvetličnem kotičku</option>
+              <option>Drugo</option>
+            </select>
+          </div>
+          <div>
+            <label for="f-msg">Sporočilo</label>
+            <textarea id="f-msg" name="sporocilo"></textarea>
+          </div>
+          <button class="btn" type="submit">Pošlji povpraševanje</button>
+          <p class="form-ok" id="formOk" role="status">Hvala. V tem oblikovnem prototipu se obrazec še ne pošilja &mdash; izdelovalec ga poveže z e-pošto ULANNI.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <svg class="bf bf--sm" aria-hidden="true"><use href="#butterfly"></use></svg>
+    <p class="wordmark">Ulanni</p>
+    <p class="dor" style="margin-bottom:18px">Ljubljana D&rsquo;OR</p>
+    <p>Lepo ostane. Zgodba se nadaljuje.</p>
+    <p>Bežigrad 6, Ljubljana &middot; 069 304 944</p>
+    <p class="hint" style="color:#C4BDAB;margin-top:22px">Oblikovni prototip spletne strani. Fotografije so začasne (Unsplash, prosta licenca) in jih nadomestimo s fotografijami ULANNI. Kontaktni podatki in cene se pred objavo potrdijo.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('menuBtn'),nav=document.getElementById('mainnav');
+  btn.addEventListener('click',function(){
+    var open=nav.getAttribute('data-open')==='true';
+    nav.setAttribute('data-open',String(!open));
+    btn.setAttribute('aria-expanded',String(!open));
+  });
+  nav.addEventListener('click',function(e){
+    if(e.target.tagName==='A'&&window.matchMedia('(max-width:760px)').matches){
+      nav.setAttribute('data-open','false');
+      btn.setAttribute('aria-expanded','false');
+    }
+  });
+
+  var chips=document.querySelectorAll('.chip');
+  var items=document.querySelectorAll('#katalog .item');
+  chips.forEach(function(c){
+    c.addEventListener('click',function(){
+      chips.forEach(function(o){o.setAttribute('aria-pressed',String(o===c))});
+      var f=c.dataset.filter;
+      items.forEach(function(it){it.hidden=!(f==='vse'||it.dataset.cat===f)});
+    });
+  });
+
+  var form=document.getElementById('inquiry'),ok=document.getElementById('formOk');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    ok.setAttribute('data-shown','true');
+  });
+})();
+</script>
+</body>
+</html>
