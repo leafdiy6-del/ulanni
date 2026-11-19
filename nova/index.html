@@ -303,6 +303,27 @@ textarea{min-height:130px;resize:vertical}
 }
 </style>
 <style>
+#vrednote .grid{grid-template-columns:repeat(5,1fr);gap:16px}
+@media (max-width:980px){#vrednote .grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){#vrednote .grid{grid-template-columns:1fr}}
+.value{background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--powder);padding:26px 22px 24px}
+.value .num{display:block;font-family:var(--display);font-size:2.6rem;line-height:1;color:var(--gold)}
+.value h3{margin:12px 0 8px;color:var(--olive-deep)}
+.value p{margin:0;font-size:1rem;color:var(--ink-soft);max-width:none}
+.message-list{list-style:none;padding:0;margin:0}
+.message-list li{font-family:var(--display);font-size:clamp(1.35rem,2.4vw,1.8rem);line-height:1.35;padding:14px 0;border-bottom:1px solid var(--line)}
+.message-list li:first-child{border-top:1px solid var(--line)}
+.message-list b{font-weight:600;color:var(--olive-deep)}
+.message-list em{color:var(--bordo)}
+.mission{background:var(--paper);border:1px solid var(--line);padding:clamp(24px,4vw,34px)}
+.mission h3{color:var(--olive-deep);margin-bottom:10px}
+.mission p{max-width:none}
+.thread{font-family:var(--display);font-style:italic;font-size:clamp(1.6rem,3.2vw,2.3rem);line-height:1.25;color:var(--bordo);text-align:center;margin:48px auto 0}
+.two{display:grid;gap:18px;grid-template-columns:1fr 1fr}
+.two>*{min-width:0}
+@media (max-width:560px){.two{grid-template-columns:1fr}}
+.form-err{color:var(--bordo);font-weight:700;margin:0}
+.form-err:empty{display:none}
 html{-webkit-text-size-adjust:100%}
 [hidden]{display:none!important}
 </style>
@@ -359,7 +380,7 @@ html{-webkit-text-size-adjust:100%}
       <h1 class="wordmark">Ulanni</h1>
       <p class="dor">Ljubljana D&rsquo;OR</p>
       <p class="hero__claim">Lepo ostane.<br>Zgodba se nadaljuje.</p>
-      <p class="lead" style="max-width:34ch">Moda z dušo. Stvari z novo zgodbo.</p>
+      <p class="lead" style="max-width:36ch">Več kot trgovina. Nov pogled na modo, lepoto in ponovno uporabo.</p>
       <p style="margin-top:32px"><a class="btn" href="#svet">Odkrij svet ULANNI</a></p>
     </div>
   </section>
@@ -367,18 +388,34 @@ html{-webkit-text-size-adjust:100%}
     <img class="banner banner--tall" src="img/hero.jpg" alt="Svetla trgovina z oblačili v nevtralnih tonih na obešalnikih" fetchpriority="high" decoding="async">
   </div>
 
-  <!-- ================= DOBRODOŠLI ================= -->
-  <section class="band band--paper">
+  <!-- ================= NAŠA FILOZOFIJA ================= -->
+  <section class="band band--paper" id="filozofija">
     <div class="wrap split">
       <div>
-        <p class="eyebrow">Dobrodošli</p>
-        <h2>Lepota ni vedno nova.<br>Včasih jo je treba<br>samo znova odkriti.</h2>
+        <p class="eyebrow">Naša filozofija</p>
+        <h2>Verjamemo, da lepota ne potrebuje vedno novega.</h2>
         <svg class="sprig" style="margin-top:28px" aria-hidden="true"><use href="#sprig"></use></svg>
       </div>
       <div>
-        <p class="lead">ULANNI je svet mode, šiviljstva in osebnih preobrazb. Verjamemo, da imajo oblačila svojo zgodbo, da lepota ne potrebuje vedno novega in da se pravi slog začne pri človeku.</p>
-        <p>V našem svetu se srečajo skrbno izbrana oblačila, ustvarjalne predelave, šiviljske spretnosti in osebno svetovanje. Izbiramo drugače. Ustvarjamo drugače. Z mislijo na lepoto, trajnost in edinstvenost vsakega posameznika.</p>
-        <p class="sig">ULANNI &mdash; lepo ostane. Zgodba se nadaljuje.</p>
+        <p class="lead">Včasih potrebuje le drugačen pogled, malo ustvarjalnosti in novo priložnost.</p>
+        <p>Oblačilom, predmetom in zgodbam dajemo novo življenje. Povezujemo modo, šiviljstvo, osebni slog, ustvarjalnost in trajnostno razmišljanje.</p>
+        <p>Pri ULANNI verjamemo, da lahko z majhnimi spremembami ustvarjamo velike premike. Ne gre samo za to, kaj nosimo, temveč tudi za to, kako živimo, ustvarjamo in kakšen svet puščamo za seboj.</p>
+        <p class="sig">ULANNI &mdash; nit, ki povezuje lepoto, ljudi in odgovornost do planeta.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PET VREDNOT ================= -->
+  <section class="band" id="vrednote">
+    <div class="wrap">
+      <p class="eyebrow">Pet vrednot ULANNI</p>
+      <h2 style="margin-bottom:36px">Kaj nas vodi</h2>
+      <div class="grid grid--5">
+        <article class="value"><span class="num">1</span><h3>Spoštovanje</h3><p>Do sebe, drugih ljudi, njihove zgodbe in dostojanstva.</p></article>
+        <article class="value"><span class="num">2</span><h3>Trajnost</h3><p>Manj zavrženega. Več premišljenega. Več novih priložnosti.</p></article>
+        <article class="value"><span class="num">3</span><h3>Ustvarjalnost</h3><p>V vsakem kosu se skriva možnost za novo zgodbo.</p></article>
+        <article class="value"><span class="num">4</span><h3>Povezovanje</h3><p>Ljudje, ideje, izmenjava, sodelovanje in skupnost.</p></article>
+        <article class="value"><span class="num">5</span><h3>Preobrazba</h3><p>Nov pogled, osebni slog, samozavest in notranji sijaj.</p></article>
       </div>
     </div>
   </section>
@@ -698,6 +735,31 @@ html{-webkit-text-size-adjust:100%}
     </div>
   </section>
 
+  <!-- ================= SPOROČILO IN POSLANSTVO ================= -->
+  <section class="band band--powder" id="sporocilo">
+    <div class="wrap">
+      <div class="split" style="align-items:start">
+        <div>
+          <p class="eyebrow">Naše sporočilo</p>
+          <h2 style="margin-bottom:26px">Izberi zgodbo</h2>
+          <ul class="message-list">
+            <li><b>Ne zavrzi.</b> <em>Odkrij novo možnost.</em></li>
+            <li><b>Ne išči popolnosti.</b> <em>Odkrij svoj slog.</em></li>
+            <li><b>Ne kupuj samo stvari.</b> <em>Izberi zgodbo.</em></li>
+            <li><b>Ne spreminjaj samo videza.</b> <em>Začuti svojo vrednost.</em></li>
+          </ul>
+        </div>
+        <div class="mission">
+          <p class="eyebrow">Naše poslanstvo</p>
+          <p class="lead">Ustvarjati prostor, kjer se srečujejo krožna moda, šiviljstvo, osebna preobrazba in ljudje.</p>
+          <p>Kjer stvari dobijo novo življenje, ljudje nov navdih in ideje priložnost, da postanejo resničnost.</p>
+          <p class="sig" style="margin-bottom:0">Skupaj za lepši, odgovornejši in bolj ustvarjalen svet.</p>
+        </div>
+      </div>
+      <p class="thread">Vsaka nit šteje. Vsaka izbira pušča sled.</p>
+    </div>
+  </section>
+
   <!-- ================= LJUBLJANA D'OR ================= -->
   <img class="banner" src="img/dor-wide.jpg" alt="Most čez Ljubljanico v starem mestnem jedru" loading="lazy" decoding="async">
   <section class="band band--dor" id="ljubljana-dor">
@@ -830,33 +892,55 @@ html{-webkit-text-size-adjust:100%}
           <p class="note">Pred objavo je treba potrditi naslov, telefon, e-pošto, odpiralni čas in povezave do aktivnih družbenih profilov.</p>
         </div>
         <form id="inquiry" novalidate>
-          <p style="margin:0;max-width:none"><em>&raquo;Pozdravljeni, zanima me več o ponudbi ULANNI.&laquo;</em></p>
+          <h3 style="margin:0;color:var(--olive-deep)">Rezerviraj termin</h3>
+          <p style="margin:0;max-width:none;color:var(--ink-soft)">Izberi storitev in želeni dan. Termin ti potrdimo po telefonu ali e-pošti.</p>
           <div>
             <label for="f-name">Ime</label>
             <input id="f-name" name="ime" type="text" autocomplete="name" required>
           </div>
-          <div>
-            <label for="f-mail">E-pošta</label>
-            <input id="f-mail" name="epost" type="email" autocomplete="email" required>
+          <div class="two">
+            <div>
+              <label for="f-tel">Telefon</label>
+              <input id="f-tel" name="telefon" type="tel" autocomplete="tel">
+            </div>
+            <div>
+              <label for="f-mail">E-pošta</label>
+              <input id="f-mail" name="epost" type="email" autocomplete="email">
+            </div>
           </div>
           <div>
-            <label for="f-svc">Vrsta storitve</label>
+            <label for="f-svc">Storitev</label>
             <select id="f-svc" name="storitev">
+              <option>Šiviljski atelje &ndash; popravilo ali prilagoditev</option>
               <option>Boutique &ndash; pomerjanje kosa</option>
-              <option>Šiviljski atelje</option>
               <option>Stil in preobrazbe</option>
-              <option>Ustvarjalnica &ndash; tečaji v živo</option>
-              <option>Spletna učilnica &ndash; obvesti me</option>
+              <option>Ustvarjalnica &ndash; tečaj v živo</option>
               <option>Fotografiranje v cvetličnem kotičku</option>
+              <option>Spletna učilnica &ndash; obvesti me</option>
               <option>Drugo</option>
             </select>
           </div>
-          <div>
-            <label for="f-msg">Sporočilo</label>
-            <textarea id="f-msg" name="sporocilo"></textarea>
+          <div class="two">
+            <div>
+              <label for="f-day">Želeni dan</label>
+              <input id="f-day" name="dan" type="date" required>
+            </div>
+            <div>
+              <label for="f-part">Del dneva</label>
+              <select id="f-part" name="del_dneva">
+                <option>Dopoldne</option>
+                <option>Popoldne</option>
+                <option>Vseeno</option>
+              </select>
+            </div>
           </div>
-          <button class="btn" type="submit">Pošlji povpraševanje</button>
-          <p class="form-ok" id="formOk" role="status">Hvala. V tem oblikovnem prototipu se obrazec še ne pošilja &mdash; izdelovalec ga poveže z e-pošto ULANNI.</p>
+          <div>
+            <label for="f-msg">Sporočilo (neobvezno)</label>
+            <textarea id="f-msg" name="sporocilo" placeholder="Npr. dvoje hlač za krajšanje"></textarea>
+          </div>
+          <p class="form-err" id="formErr" role="alert"></p>
+          <button class="btn" type="submit">Pošlji rezervacijo</button>
+          <p class="form-ok" id="formOk" role="status">Hvala. V tem oblikovnem prototipu se rezervacija še ne pošilja &mdash; obrazec povežemo z e-pošto ULANNI pred objavo.</p>
         </form>
       </div>
     </div>
@@ -869,6 +953,7 @@ html{-webkit-text-size-adjust:100%}
     <p class="wordmark">Ulanni</p>
     <p class="dor" style="margin-bottom:18px">Ljubljana D&rsquo;OR</p>
     <p>Lepo ostane. Zgodba se nadaljuje.</p>
+    <p>Skupaj za lepši, odgovornejši in bolj ustvarjalen svet.</p>
     <p>Bežigrad 6, Ljubljana &middot; 069 304 944</p>
     <p class="hint" style="color:#C4BDAB;margin-top:22px">Oblikovni prototip spletne strani. Fotografije so začasne (Unsplash, prosta licenca) in jih nadomestimo s fotografijami ULANNI. Kontaktni podatki in cene se pred objavo potrdijo.</p>
   </div>
@@ -900,9 +985,19 @@ html{-webkit-text-size-adjust:100%}
   });
 
   var form=document.getElementById('inquiry'),ok=document.getElementById('formOk');
+  var err=document.getElementById('formErr');
   form.addEventListener('submit',function(e){
     e.preventDefault();
+    ok.setAttribute('data-shown','false');
+    var name=form.ime, tel=form.telefon, mail=form.epost, day=form.dan, msg='', bad=null;
+    if(!name.value.trim()){msg='Vpiši svoje ime.';bad=name}
+    else if(!tel.value.trim()&&!mail.value.trim()){msg='Vpiši telefon ali e-pošto, da ti lahko potrdimo termin.';bad=tel}
+    else if(mail.value.trim()&&!mail.checkValidity()){msg='Preveri e-poštni naslov.';bad=mail}
+    else if(!day.value){msg='Izberi želeni dan.';bad=day}
+    err.textContent=msg;
+    if(bad){bad.focus();return}
     ok.setAttribute('data-shown','true');
+    form.reset();
   });
 })();
 </script>
