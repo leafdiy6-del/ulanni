@@ -87,10 +87,24 @@ section{padding:clamp(60px,8vw,100px) 0}
 @keyframes drift{0%,100%{transform:translate(0,0) rotate(var(--r,0deg))}50%{transform:translate(-8px,-13px) rotate(calc(var(--r,0deg) - 5deg))}}
 
 .values{border-block:1px solid var(--line);background:rgba(255,244,234,.6);padding:18px 0}
-.values ul{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.values li{display:flex;align-items:center;justify-content:center;gap:12px;font:600 21px/1.15 var(--serif);text-align:left}
-.values li+li{border-left:1px solid var(--line)}
-.values svg{width:38px;height:38px;flex:none;color:var(--olive)}
+.values ul{display:grid;grid-template-columns:repeat(5,1fr);gap:8px 18px}
+.values li{display:flex;align-items:flex-start;gap:11px;text-align:left}
+.values li b{display:block;font:600 19px/1.15 var(--serif);color:var(--olive-dark);letter-spacing:.04em;text-transform:uppercase}
+.values li span{display:block;font-size:16.5px;line-height:1.3;color:var(--muted);margin-top:3px}
+.values svg{width:34px;height:34px;flex:none;color:var(--olive);margin-top:1px}
+.manifest .sign{font:600 clamp(18px,1.9vw,21px)/1.4 var(--serif);letter-spacing:.06em;color:var(--gold-light);margin-top:30px}
+.message{padding:clamp(64px,8vw,104px) 0}
+.msg-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,4vw,56px);align-items:start}
+.msg-list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.msg-list li{font:400 clamp(21px,2.2vw,26px)/1.35 var(--serif);border-bottom:1px solid var(--line);padding-bottom:12px}
+.msg-list b{font-weight:600;color:var(--olive-dark)}
+.msg-list em{color:var(--rose-deep)}
+.mission{padding:clamp(24px,3vw,38px)}
+.mission h3{font:400 clamp(38px,4vw,50px)/1.1 var(--script);color:var(--olive-dark);margin-bottom:8px}
+.mission p{font-size:clamp(19px,1.9vw,21px);line-height:1.5;margin-top:12px}
+.mission p.last{font-weight:600;color:var(--olive-dark)}
+.thread{text-align:center;font:400 clamp(32px,3.8vw,46px)/1.2 var(--script);color:var(--rose-deep);margin-top:clamp(32px,4vw,48px)}
+.form-card .hint{font-size:17px;color:var(--muted);margin:-4px 0 14px}
 
 /* paths */
 .paths{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
@@ -232,7 +246,7 @@ figure{margin:0}
 form{position:relative;z-index:1;display:grid;gap:13px}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:13px}
 label.f{display:grid;gap:3px;font:600 17px/1.2 var(--serif)}
-input[type=text],input[type=email],input[type=tel],select,textarea{width:100%;min-height:48px;padding:9px 12px;border:1.5px solid var(--gold);border-radius:8px;background:#fff;font:400 18.5px/1.3 var(--body)}
+input[type=text],input[type=email],input[type=tel],input[type=date],select,textarea{width:100%;min-height:48px;padding:9px 12px;border:1.5px solid var(--gold);border-radius:8px;background:#fff;font:400 18.5px/1.3 var(--body)}
 textarea{min-height:104px;resize:vertical}
 .check{display:grid;grid-template-columns:24px 1fr;gap:9px;font-size:16.5px;line-height:1.32}
 .check input{width:21px;height:21px;margin:2px 0 0;accent-color:var(--olive)}
@@ -252,6 +266,7 @@ footer{background:var(--olive-dark);color:#fbeedb;text-align:center;padding:48px
 footer .note{color:#e6dcc4;max-width:720px;margin:18px auto 0;font-size:15px}
 
 @media (max-width:1120px){
+  .values ul{grid-template-columns:repeat(3,1fr);gap:16px 18px}
   .menu{position:absolute;left:0;right:0;top:100%;display:none;flex-direction:column;align-items:stretch;gap:0;padding:8px 20px 18px;background:var(--paper);border-bottom:1px solid var(--gold);box-shadow:0 18px 26px -18px rgba(70,40,10,.6)}
   .menu.open{display:flex}
   .menu a:not(.btn){padding:12px 0;font-size:21px;border-bottom:1px solid var(--line)}
@@ -264,6 +279,7 @@ footer .note{color:#e6dcc4;max-width:720px;margin:18px auto 0;font-size:15px}
     -webkit-mask-image:linear-gradient(to bottom,transparent,#000 14%,#000 88%,transparent);mask-image:linear-gradient(to bottom,transparent,#000 14%,#000 88%,transparent);-webkit-mask-composite:source-over;mask-composite:add}
 }
 @media (max-width:860px){
+  .msg-grid{grid-template-columns:1fr}
   .hero-grid{grid-template-columns:1fr}
   .hero-copy{order:-1;padding:26px 16px 12px}
   .hero-lady{max-width:520px;margin:0 auto}
@@ -277,9 +293,8 @@ footer .note{color:#e6dcc4;max-width:720px;margin:18px auto 0;font-size:15px}
 @media (max-width:600px){
   body{font-size:18.5px}
   :root{--wrap:calc(100% - 32px)}
-  .values ul{grid-template-columns:1fr;gap:10px}
-  .values li{justify-content:flex-start;padding-left:18%}
-  .values li+li{border-left:0}
+  .values ul{grid-template-columns:1fr;gap:14px}
+  .values li{padding-left:6%}
   .paths,.programs{grid-template-columns:1fr}
   .items{gap:12px}
   .item{padding:11px 11px 15px}
@@ -317,7 +332,7 @@ footer .note{color:#e6dcc4;max-width:720px;margin:18px auto 0;font-size:15px}
       <a href="#ucilnica">Spletna učilnica</a>
       <a href="#cenik">Cenik</a>
       <a href="#obisk">Obisk</a>
-      <a class="btn small" href="#povprasevanje">Povprašaj</a>
+      <a class="btn small" href="#povprasevanje">Rezerviraj termin</a>
     </nav>
   </div>
 </header>
@@ -333,7 +348,7 @@ footer .note{color:#e6dcc4;max-width:720px;margin:18px auto 0;font-size:15px}
         <span class="sub" style="display:block">Hiša ponovne uporabe</span>
       </h1>
       <div class="heart-rule"><svg aria-hidden="true"><use href="#heart"/></svg></div>
-      <p class="hero-script">Moda. Šiviljstvo. Nove zgodbe.</p>
+      <p class="hero-script">Moda · Šiviljstvo · Preobrazbe</p>
       <p class="hero-tag">Lepo ostane. Zgodba se nadaljuje.</p>
       <div class="hero-cta">
         <a class="btn" href="#poti">Razišči ponudbo</a>
@@ -345,11 +360,13 @@ footer .note{color:#e6dcc4;max-width:720px;margin:18px auto 0;font-size:15px}
   </div>
 </section>
 
-<div class="values">
+<div class="values" aria-label="Pet vrednot Ulanni">
   <ul class="wrap">
-    <li><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8l4-6 4 6-2.500 4M24 15l3.500 6-3 5h-7M8.500 26h-3l-3-5 3.500-6"/><path d="M16 2l-4 6M9 11l-3 4 5 1M20.500 25l-3 3 0-5M21 10l5 .5-2 4.500"/></svg>Manj odpadkov</li>
-    <li><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="16" r="14"/><path d="M10 22c0-8 5-12 13-13 0 9-4 14-10 14-1.500 0-2.500-.5-3-1zM10 23c2-5 5-8 8-10"/></svg>Več vrednosti</li>
-    <li><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round" aria-hidden="true"><circle cx="16" cy="16" r="14"/><ellipse cx="16" cy="16" rx="6" ry="14"/><path d="M3 11h26M3 21h26"/></svg>Boljši planet</li>
+    <li><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 27C9 21.5 4 17.3 4 11.8 4 8.2 6.700 5.600 10 5.600c2.400 0 4.600 1.300 6 3.400 1.400-2.100 3.600-3.400 6-3.400 3.300 0 6 2.600 6 6.200 0 5.500-5 9.700-12 15.200z"/></svg><div><b>Spoštovanje</b><span>Do sebe, drugih ljudi, njihove zgodbe in dostojanstva.</span></div></li>
+    <li><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="16" r="13"/><path d="M10 22c0-8 5-12 13-13 0 9-4 14-10 14-1.500 0-2.500-.5-3-1zM10 23c2-5 5-8 8-10"/></svg><div><b>Trajnost</b><span>Manj zavrženega. Več premišljenega. Več novih priložnosti.</span></div></li>
+    <li><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 25L22.500 9.500"/><ellipse cx="24.500" cy="7.500" rx="2" ry="3.600" transform="rotate(45 24.500 7.500)"/><path d="M7 25c-3 3.500 2 5 6 2.500s9-2 12.500 1"/></svg><div><b>Ustvarjalnost</b><span>V vsakem kosu se skriva možnost za novo zgodbo.</span></div></li>
+    <li><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="16" r="7.500"/><circle cx="20" cy="16" r="7.500"/></svg><div><b>Povezovanje</b><span>Ljudje, ideje, izmenjava, sodelovanje in skupnost.</span></div></li>
+    <li><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 11v14"/><path d="M16 13.500C13.500 6.500 7.500 4.500 4.500 7.500c-2 3 1 8.500 6 8.500 2.800 0 4.600-1 5.500-2z"/><path d="M16 13.500c2.500-7 8.500-9 11.500-6 2 3-1 8.500-6 8.500-2.800 0-4.600-1-5.500-2z"/><path d="M16 17c-4 0-8 2-7 6 1 3 5 2 7-3M16 17c4 0 8 2 7 6-1 3-5 2-7-3"/></svg><div><b>Preobrazba</b><span>Nov pogled, osebni slog, samozavest in notranji sijaj.</span></div></li>
   </ul>
 </div>
 
@@ -358,7 +375,7 @@ footer .note{color:#e6dcc4;max-width:720px;margin:18px auto 0;font-size:15px}
     <div class="head">
       <span class="pill">Storitve</span>
       <h2 class="title">Kaj te pripelje k nam?</h2>
-      <p class="lead">Ohranjamo lepo. Popravljamo. Preobrazimo. Vse pod eno streho in odslej tudi na spletu.</p>
+      <p class="lead">Več kot trgovina. Nov pogled na modo, lepoto in ponovno uporabo.</p>
     </div>
     <div class="paths">
       <a class="frame path" href="#butik"><div class="art"><img src="data:image/webp;base64,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" alt="" width="230" height="135"></div><h3>Second hand &amp; upcycling</h3><em>oblačila z zgodbo</em><p>Izbrani rabljeni in na novo zamišljeni kosi, ki si zaslužijo še eno poglavje.</p><span class="more">Poglej kose →</span></a>
@@ -369,15 +386,17 @@ footer .note{color:#e6dcc4;max-width:720px;margin:18px auto 0;font-size:15px}
   </div>
 </section>
 
-<section class="manifest" aria-label="Naše poslanstvo">
+<section class="manifest" id="filozofija" aria-label="Naša filozofija">
   <div class="white-fly" style="width:92px;left:7%;top:16%;--r:-18deg"><svg aria-hidden="true"><use href="#wfly"/></svg></div>
   <div class="white-fly" style="width:52px;left:17%;bottom:14%;--r:14deg;animation-delay:-3s"><svg aria-hidden="true"><use href="#wfly"/></svg></div>
   <div class="white-fly" style="width:72px;right:8%;top:42%;--r:20deg;animation-delay:-5s"><svg aria-hidden="true"><use href="#wfly"/></svg></div>
   <div class="white-fly" style="width:40px;right:21%;top:12%;--r:-10deg;animation-delay:-2s"><svg aria-hidden="true"><use href="#wfly"/></svg></div>
   <div class="wrap">
-    <p class="kicker">Bodi svoj metulj</p>
-    <blockquote>Preobrazba, ki te spomni, kdo si.</blockquote>
-    <p>Nova podoba sama ni dovolj. Naučiti se je treba, kako ti pristajajo barva, stil in model ter kakšen tip si. Šele takrat svojo podobo res nosiš kot svojo.</p>
+    <p class="kicker">Naša filozofija</p>
+    <blockquote>Verjamemo, da lepota ne potrebuje vedno novega.</blockquote>
+    <p>Včasih potrebuje le drugačen pogled, malo ustvarjalnosti in novo priložnost. Oblačilom, predmetom in zgodbam dajemo novo življenje. Povezujemo modo, šiviljstvo, osebni slog, ustvarjalnost in trajnostno razmišljanje.</p>
+    <p>Pri ULANNI verjamemo, da lahko z majhnimi spremembami ustvarjamo velike premike. Ne gre samo za to, kaj nosimo, temveč tudi za to, kako živimo, ustvarjamo in kakšen svet puščamo za seboj.</p>
+    <p class="sign">ULANNI – nit, ki povezuje lepoto, ljudi in odgovornost do planeta.</p>
   </div>
 </section>
 
@@ -439,7 +458,7 @@ footer .note{color:#e6dcc4;max-width:720px;margin:18px auto 0;font-size:15px}
           <li><b>Stilska preobrazba</b><br>Od pregleda garderobe do novih kombinacij, tudi iz druge roke.</li>
           <li><b>Celostna preobrazba</b><br>Frizura, stil in fotografije: nov videz, v katerem se prepoznaš.</li>
         </ul>
-        <p style="margin-top:22px"><a class="btn" href="#povprasevanje" data-reserve="Stilsko svetovanje" data-topic="Stilsko svetovanje">Povprašaj za posvet</a></p>
+        <p style="margin-top:22px"><a class="btn" href="#povprasevanje" data-reserve="Stilsko svetovanje" data-topic="Stilsko svetovanje">Rezerviraj posvet</a></p>
       </div>
       <div class="frame quiz" id="quiz" aria-live="polite"></div>
     </div>
@@ -537,6 +556,30 @@ footer .note{color:#e6dcc4;max-width:720px;margin:18px auto 0;font-size:15px}
   </div>
 </section>
 
+<section class="message" id="sporocilo">
+  <div class="wrap">
+    <div class="head">
+      <span class="pill">Naše sporočilo</span>
+      <h2 class="title">Izberi zgodbo</h2>
+    </div>
+    <div class="msg-grid">
+      <ul class="msg-list">
+        <li><b>Ne zavrzi.</b> <em>Odkrij novo možnost.</em></li>
+        <li><b>Ne išči popolnosti.</b> <em>Odkrij svoj slog.</em></li>
+        <li><b>Ne kupuj samo stvari.</b> <em>Izberi zgodbo.</em></li>
+        <li><b>Ne spreminjaj samo videza.</b> <em>Začuti svojo vrednost.</em></li>
+      </ul>
+      <div class="frame mission">
+        <h3>Naše poslanstvo</h3>
+        <p>Ustvarjati prostor, kjer se srečujejo krožna moda, šiviljstvo, osebna preobrazba in ljudje.</p>
+        <p>Kjer stvari dobijo novo življenje, ljudje nov navdih in ideje priložnost, da postanejo resničnost.</p>
+        <p class="last">Skupaj za lepši, odgovornejši in bolj ustvarjalen svet.</p>
+      </div>
+    </div>
+    <p class="thread">Vsaka nit šteje. Vsaka izbira pušča sled.</p>
+  </div>
+</section>
+
 <section class="visit" id="obisk">
   <div class="wrap visit-grid">
     <div>
@@ -547,30 +590,42 @@ footer .note{color:#e6dcc4;max-width:720px;margin:18px auto 0;font-size:15px}
       <div class="facts">
         <div><b>Kje smo</b>Bežigrad 6, Ljubljana · <a href="https://www.google.com/maps/search/?api=1&amp;query=Be%C5%BEigrad%206%2C%20Ljubljana" target="_blank" rel="noopener">Odpri zemljevid</a></div>
         <div><b>Odpiralni čas</b>Objavimo pred odprtjem.</div>
-        <div><b>Kontakt</b>Telefon in e-pošto dodamo v končni različici.</div>
+        <div><b>Kontakt</b><a href="tel:+38669304944">069 304 944</a> · e-pošto dodamo v končni različici.</div>
       </div>
     </div>
     <div class="frame form-card" id="povprasevanje">
-      <h3>Povej nam svojo zgodbo</h3>
+      <h3>Rezerviraj termin</h3>
+      <p class="hint">Izberi storitev in želeni dan. Termin ti potrdimo po telefonu ali e-pošti.</p>
       <form data-demo data-contact novalidate>
         <label class="f">Ime<input type="text" name="name" required autocomplete="name"></label>
         <div class="two">
-          <label class="f">E-pošta<input type="email" name="email" autocomplete="email"></label>
           <label class="f">Telefon<input type="tel" name="phone" autocomplete="tel"></label>
+          <label class="f">E-pošta<input type="email" name="email" autocomplete="email"></label>
         </div>
-        <label class="f">Kaj te zanima?
+        <label class="f">Storitev
           <select name="topic" id="topic">
             <option>Šivalnica</option>
             <option>Pomerjanje kosa</option>
             <option>Stilsko svetovanje</option>
+            <option>Osebna preobrazba</option>
             <option>Spletna učilnica</option>
             <option>Drugo</option>
           </select>
         </label>
-        <label class="f">Sporočilo<textarea name="msg" id="msg" required></textarea></label>
+        <div class="two">
+          <label class="f">Želeni dan<input type="date" name="day" required></label>
+          <label class="f">Del dneva
+            <select name="part">
+              <option>Dopoldne</option>
+              <option>Popoldne</option>
+              <option>Vseeno</option>
+            </select>
+          </label>
+        </div>
+        <label class="f">Sporočilo (neobvezno)<textarea name="msg" id="msg" placeholder="Npr. dvoje hlač za krajšanje"></textarea></label>
         <p class="err" role="alert"></p>
-        <button class="btn" type="submit">Pošlji povpraševanje</button>
-        <p class="ok" role="status">Predogled: obrazec deluje, vendar se sporočilo nikamor ne pošlje.</p>
+        <button class="btn" type="submit">Pošlji rezervacijo</button>
+        <p class="ok" role="status">Predogled: rezervacija je izpolnjena pravilno, vendar se podatki nikamor ne pošljejo.</p>
       </form>
     </div>
   </div>
@@ -581,7 +636,7 @@ footer .note{color:#e6dcc4;max-width:720px;margin:18px auto 0;font-size:15px}
   <div class="foot-logo">Ulanni</div>
   <div class="foot-motto">Bodi svoj metulj</div>
   <ul class="foot-tags"><li>Ljubljana</li><li>Trajnost</li><li>Eleganca</li><li>Skupnost</li></ul>
-  <p class="note">Skupaj za lepši in bolj trajnostni svet. Predogled oblikovanja: ilustracije so vizualna ponazoritev, obrazci ne pošiljajo podatkov.</p>
+  <p class="note">Skupaj za lepši, odgovornejši in bolj ustvarjalen svet. Predogled oblikovanja: ilustracije so vizualna ponazoritev, obrazci ne pošiljajo podatkov.</p>
 </footer>
 
 <script>
